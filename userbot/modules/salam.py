@@ -10,6 +10,7 @@ async def _(event):
     await event.client.send_message(
         event.chat_id, "**Assalamualaikum Dulu Biar Sopan**"
     )
+    await event.delete()
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"pe(?: |$)(.*)"))
@@ -17,11 +18,13 @@ async def _(event):
     await event.client.send_message(
         event.chat_id, "**Assalamualaikum Warahmatullahi Wabarakatuh**"
     )
+    await event.delete()
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"l(?: |$)(.*)"))
 async def _(event):
     await event.client.send_message(event.chat_id, "**Wa'alaikumsalam**")
+    await event.delete()
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"a(?: |$)(.*)"))
