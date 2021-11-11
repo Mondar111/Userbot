@@ -14,10 +14,10 @@ from asyncio import create_subprocess_exec as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 from datetime import datetime
 from platform import python_version
-from pytgcalls import (__version__ as pytgcalls)
 from shutil import which
 
 import psutil
+from pytgcalls import __version__ as pytgcalls
 from telethon import __version__, version
 
 from userbot import ALIVE_EMOJI, ALIVE_LOGO, ALIVE_TEKS_CUSTOM, BOT_VER, CHANNEL
