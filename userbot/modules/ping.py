@@ -207,14 +207,12 @@ async def _(pong):
 async def _(speed):
     """For .speedtest command, use SpeedTest to check server speeds."""
     await speed.edit("`Running speed test...`")
-
     test = Speedtest()
     test.get_best_server()
     test.download()
     test.upload()
     test.results.share()
     result = test.results.dict()
-
     msg = (
         f"**Started at {result['timestamp']}**\n\n"
         "**Client**\n"
@@ -228,7 +226,6 @@ async def _(speed):
         f"**Upload :** `{humanbytes(result['upload'])}/s`\n"
         f"**Download :** `{humanbytes(result['download'])}/s`"
     )
-
     await speed.delete()
     await speed.client.send_file(
         speed.chat_id,
