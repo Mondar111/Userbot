@@ -13,22 +13,17 @@ import time
 from asyncio import create_subprocess_exec as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 from datetime import datetime
-from platform import python_version, uname
+from platform import python_version
 from shutil import which
 
 import psutil
 from telethon import __version__, version
 
-from userbot import (
-    ALIVE_EMOJI,
-    ALIVE_LOGO,
-    ALIVE_TEKS_CUSTOM,
-    BOT_VER,
-    CHANNEL,
-)
+from userbot import ALIVE_EMOJI, ALIVE_LOGO, ALIVE_TEKS_CUSTOM, BOT_VER, CHANNEL
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, GROUP, StartTime, bot
 from userbot.events import man_cmd
+
 from .ping import get_readable_time
 
 modules = CMD_HELP
