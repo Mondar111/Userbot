@@ -1,7 +1,3 @@
-
-
-from platform import uname
-
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, bot, user
 from userbot.events import man_cmd
@@ -11,12 +7,16 @@ OWNER = user.first_name
 
 @bot.on(man_cmd(outgoing=True, pattern="p(?: |$)(.*)"))
 async def _(event):
-    await event.client.send_message(event.chat_id, "**Assalamualaikum Dulu Biar Sopan**")
+    await event.client.send_message(
+        event.chat_id, "**Assalamualaikum Dulu Biar Sopan**"
+    )
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"pe(?: |$)(.*)"))
 async def _(event):
-    await event.client.send_message(event.chat_id, "**Assalamualaikum Warahmatullahi Wabarakatuh**")
+    await event.client.send_message(
+        event.chat_id, "**Assalamualaikum Warahmatullahi Wabarakatuh**"
+    )
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"l(?: |$)(.*)"))
