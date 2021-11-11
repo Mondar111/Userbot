@@ -22,7 +22,6 @@ from telethon import __version__, version
 from userbot import (
     ALIVE_EMOJI,
     ALIVE_LOGO,
-    ALIVE_NAME,
     ALIVE_TEKS_CUSTOM,
     BOT_VER,
     CHANNEL,
@@ -30,38 +29,9 @@ from userbot import (
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, GROUP, StartTime, bot
 from userbot.events import man_cmd
-
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
-
+from .ping import get_readable_time
 
 modules = CMD_HELP
-
-
-async def get_readable_time(seconds: int) -> str:
-    count = 0
-    up_time = ""
-    time_list = []
-    time_suffix_list = ["s", "m", "Jam", "Hari"]
-
-    while count < 4:
-        count += 1
-        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
-        if seconds == 0 and remainder == 0:
-            break
-        time_list.append(int(result))
-        seconds = int(remainder)
-
-    for x in range(len(time_list)):
-        time_list[x] = str(time_list[x]) + time_suffix_list[x]
-    if len(time_list) == 4:
-        up_time += time_list.pop() + ", "
-
-    time_list.reverse()
-    up_time += ":".join(time_list)
-
-    return up_time
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"spc"))
@@ -180,7 +150,7 @@ async def amireallyalive(alive):
     output = (
         f"**[Man-Userbot](https://github.com/mrismanaziz/Man-Userbot) is Up and Running.**\n\n"
         f"**{ALIVE_TEKS_CUSTOM}**\n\n"
-        f"{ALIVE_EMOJI} **Master :** [{DEFAULTUSER}](tg://user?id={user.id}) \n"
+        f"{ALIVE_EMOJI} **Master :** [{user.first_name}](tg://user?id={user.id}) \n"
         f"{ALIVE_EMOJI} **Modules :** `{len(modules)} Modules` \n"
         f"{ALIVE_EMOJI} **Bot Version :** `{BOT_VER}` \n"
         f"{ALIVE_EMOJI} **Python Version :** `{python_version()}` \n"
@@ -224,7 +194,7 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "alive": "**Plugin : **`alive`\
+        "alive": f"**Plugin : **`alive`\
         \n\n  •  **Syntax :** `{cmd}alive` atau `{cmd}on`\
         \n  •  **Function : **Untuk melihat apakah bot Anda berfungsi atau tidak.\
     "
