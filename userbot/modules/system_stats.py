@@ -20,7 +20,7 @@ import psutil
 from pytgcalls import __version__ as pytgcalls
 from telethon import __version__, version
 
-from userbot import ALIVE_EMOJI, ALIVE_LOGO, ALIVE_TEKS_CUSTOM, BOT_VER, CHANNEL
+from userbot import ALIVE_LOGO, BOT_VER, CHANNEL
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, GROUP, StartTime, bot
 from userbot.events import man_cmd
