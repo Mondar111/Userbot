@@ -20,17 +20,16 @@ import psutil
 from pytgcalls import __version__ as pytgcalls
 from telethon import __version__, version
 
-from userbot import ALIVE_LOGO, BOT_VER, CHANNEL
+from userbot import ALIVE_EMOJI, ALIVE_LOGO, ALIVE_TEKS_CUSTOM, BOT_VER, CHANNEL
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, GROUP, StartTime, bot
 from userbot.events import man_cmd
-from userbot.modules.sql_helper.globals import gvarstatus
 
 from .ping import get_readable_time
 
 modules = CMD_HELP
-emoji = gvarstatus("ALIVE_EMOJI") or "⚡️"
-alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey, I am alive."
+emoji = ALIVE_EMOJI
+alive_text = ALIVE_TEKS_CUSTOM
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"spc"))
