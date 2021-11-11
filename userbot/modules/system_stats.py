@@ -29,8 +29,8 @@ from userbot.modules.sql_helper.globals import gvarstatus
 from .ping import get_readable_time
 
 modules = CMD_HELP
-emoji = ALIVE_EMOJI or gvarstatus("ALIVE_EMOJI")
-alive_text = ALIVE_TEKS_CUSTOM or gvarstatus("ALIVE_TEKS_CUSTOM")
+emoji = gvarstatus("ALIVE_EMOJI") or "⚡️"
+alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey, I am alive."
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"spc"))
