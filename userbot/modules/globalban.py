@@ -21,30 +21,7 @@ from userbot import CMD_HELP, DEVS, bot
 from userbot.events import man_cmd, register
 from userbot.utils import edit_or_reply
 
-from .admin import get_user_from_event
-
-BANNED_RIGHTS = ChatBannedRights(
-    until_date=None,
-    view_messages=True,
-    send_messages=True,
-    send_media=True,
-    send_stickers=True,
-    send_gifs=True,
-    send_games=True,
-    send_inline=True,
-    embed_links=True,
-)
-
-UNBAN_RIGHTS = ChatBannedRights(
-    until_date=None,
-    send_messages=None,
-    send_media=None,
-    send_stickers=None,
-    send_gifs=None,
-    send_games=None,
-    send_inline=None,
-    embed_links=None,
-)
+from .admin import BANNED_RIGHTS, UNBAN_RIGHTS, get_user_from_event
 
 
 async def admin_groups(grp):
