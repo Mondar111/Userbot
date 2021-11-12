@@ -1,10 +1,11 @@
 from time import sleep
 
+from userbot import ALIVE_NAME
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, bot, user
+from userbot import CMD_HELP, bot
 from userbot.events import man_cmd
 
-OWNER = user.first_name
+OWNER = ALIVE_NAME
 
 
 @bot.on(man_cmd(outgoing=True, pattern="p(?: |$)(.*)"))
