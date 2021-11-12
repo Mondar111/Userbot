@@ -12,14 +12,14 @@ from telethon import events
 from telethon.errors import BadRequestError
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
-from telethon.tl.types import Channel, ChatBannedRights, MessageEntityMentionName
+from telethon.tl.types import Channel, ChatBannedRights
 
 import userbot.modules.sql_helper.gban_sql as gban_sql
 from userbot import BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, DEVS, bot
 from userbot.events import man_cmd, register
-from userbot.utils import edit_delete, edit_or_reply
+from userbot.utils import edit_or_reply
 
 from .admin import get_user_from_event
 
