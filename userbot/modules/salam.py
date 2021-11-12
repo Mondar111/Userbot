@@ -1,7 +1,7 @@
 from time import sleep
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, bot, user
+from userbot import CMD_HELP, bot, user,
 from userbot.events import man_cmd
 
 OWNER = user.first_name
@@ -45,7 +45,7 @@ async def _(event):
 
 @bot.on(man_cmd(outgoing=True, pattern=r"k(?: |$)(.*)"))
 async def _(event):
-    await event.edit(f"**Hallo KIMAAKK SAYA {DEFAULTUSER}**")
+    await event.edit(f"**Hallo KIMAAKK SAYA {OWNER}**")
     sleep(2)
     await event.edit("**LU SEMUA NGENTOT 🔥**")
 
