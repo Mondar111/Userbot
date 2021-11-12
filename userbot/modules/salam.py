@@ -9,24 +9,24 @@ OWNER = user.first_name
 
 @bot.on(man_cmd(outgoing=True, pattern="p(?: |$)(.*)"))
 async def _(event):
-    await event.client.send_message(
-        event.chat_id, "**Assalamualaikum Dulu Biar Sopan**"
-    )
-    await event.delete()
+    await event.edit("**Assalamualaikum Dulu Biar Sopan**")
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"pe(?: |$)(.*)"))
 async def _(event):
-    await event.client.send_message(
-        event.chat_id, "**Assalamualaikum Warahmatullahi Wabarakatuh**"
-    )
-    await event.delete()
+    await event.edit("**Assalamualaikum Warahmatullahi Wabarakatuh**")
+
+
+@bot.on(man_cmd(outgoing=True, pattern="P(?: |$)(.*)"))
+async def _(event):
+    await event.edit(f"**Haii Salken Saya {OWNER}**")
+    sleep(2)
+    await event.edit("**Assalamualaikum...**")
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"l(?: |$)(.*)"))
 async def _(event):
-    await event.client.send_message(event.chat_id, "**Wa'alaikumsalam**")
-    await event.delete()
+    await event.edit("**Wa'alaikumsalam**")
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"a(?: |$)(.*)"))
