@@ -21,6 +21,8 @@ from userbot import CMD_HELP, DEVS, bot
 from userbot.events import man_cmd, register
 from userbot.utils import edit_delete, edit_or_reply
 
+from .admin import get_user_from_event
+
 BANNED_RIGHTS = ChatBannedRights(
     until_date=None,
     view_messages=True,
@@ -60,48 +62,6 @@ async def admin_groups(grp):
 
 def mentionuser(name, userid):
     return f"[{name}](tg://user?id={userid})"
-
-
-async def get_user_from_event(event, uevent=None, secondgroup=None):
-    if uevent is None:
-        uevent = event
-    if secondgroup:
-        args = event.pattern_match.group(2).split(" ", 1)
-    else:
-        args = event.pattern_match.group(1).split(" ", 1)
-    extra = None
-    if event.reply_to_msg_id:
-        previous_message = await event.get_reply_message()
-        if previous_message.from_id is None and not event.is_private:
-            await edit_delete(uevent, "`Nah itu admin anonim 🥺`")
-            return None, None
-        user_obj = await event.client.get_entity(previous_message.sender_id)
-        extra = event.pattern_match.group(1)
-    elif args:
-        user = args[0]
-        if len(args) == 2:
-            extra = args[1]
-        if user.isnumeric():
-            user = int(user)
-        if not user:
-            await edit_delete(
-                uevent, "**Gunakan username, user id, atau reply untuk gban**", 5
-            )
-            return None, None
-        if event.message.entities:
-            probable_user_mention_entity = event.message.entities[0]
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
-                user_id = probable_user_mention_entity.user_id
-                user_obj = await event.client.get_entity(user_id)
-                return user_obj, extra
-        try:
-            user_obj = await event.client.get_entity(user)
-        except (TypeError, ValueError):
-            await edit_delete(
-                uevent, "**Tidak dapat mengambil user untuk diproses lebih lanjut**", 5
-            )
-            return None, None
-    return user_obj, extra
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"gban(?: |$)(.*)"))
