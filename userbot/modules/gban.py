@@ -5,7 +5,7 @@ from telethon import events
 
 from userbot import ALIVE_NAME, DEVS, bot
 from userbot.events import man_cmd, register
-from userbot.modules.sql_helper.gmute_sql import is_gmuted
+from userbot.modules.sql_helper.gmute_sql import get_all_gmute, is_gmuted
 
 from .admin import get_user_from_event
 
@@ -165,7 +165,7 @@ async def gunben(userbot):
 
 @bot.on(man_cmd(outgoing=True, pattern=r"listgmute$"))
 async def gablist(event):
-    gmuted_users = is_gmuted()
+    gmuted_users = get_all_gmute()
     GMUTE_LIST = "**List Global Banned Saat Ini**\n"
     if len(gmuted_users) > 0:
         for a_user in gmuted_users:
