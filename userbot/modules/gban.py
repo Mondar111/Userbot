@@ -12,23 +12,35 @@ from .admin import get_user_from_event
 # Ported For Lord-Userbot by liualvinas/Alvin
 
 
-@bot.on(events.ChatAction)
-async def _(event):
-    if event.user_joined or event.added_by:
-        user = await event.get_user()
-        chat = await event.get_chat()
-        if is_gmuted(user.id) and chat.admin_rights:
-            try:
-                await event.client.edit_permissions(
-                    chat.id,
-                    user.id,
-                    view_messages=False,
-                )
-                await event.reply(
-                    f"**#GBanned_User** Joined.\n\n** • First Name:** [{user.first_name}](tg://user?id={user.id})\n • **Action:** `Banned`"
-                )
-            except BaseException:
-                pass
+@bot.on(ChatAction)
+async def handler(tele):
+    if not tele.user_joined and not tele.user_added:
+        return
+    try:
+        from userbot.modules.sql_helper.gmute_sql import is_gmuted
+
+        guser = await tele.get_user()
+        gmuted = is_gmuted(guser.id)
+    except BaseException:
+        return
+    if gmuted:
+        for i in gmuted:
+            if i.sender == str(guser.id):
+                chat = await tele.get_chat()
+                admin = chat.admin_rights
+                creator = chat.creator
+                if admin or creator:
+                    try:
+                        await client.edit_permissions(
+                            tele.chat_id, guser.id, view_messages=False
+                        )
+                        await tele.reply(
+                            f"**Gbanned Spoted** \n"
+                            f"**First Name :** [{guser.id}](tg://user?id={guser.id})\n"
+                            f"**Action :** `Banned`"
+                        )
+                    except BaseException:
+                        return
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"gband(?: |$)(.*)"))
