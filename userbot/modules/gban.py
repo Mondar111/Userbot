@@ -1,7 +1,6 @@
 # by:koala @mixiologist
 # Lord Userbot
 
-from telethon.events import ChatAction
 
 from userbot import ALIVE_NAME, DEVS, bot
 from userbot.events import man_cmd, register
