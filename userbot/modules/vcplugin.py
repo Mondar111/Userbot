@@ -14,6 +14,7 @@ from pytgcalls.types.input_stream.quality import (
     LowQualityVideo,
     MediumQualityVideo,
 )
+from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 from telethon.tl import types
 from telethon.utils import get_display_name
 from youtubesearchpython import VideosSearch
@@ -435,9 +436,10 @@ async def vc_playlist(event):
 
 @call_py.on_stream_end()
 async def stream_end_handler(_, u: Update):
-    chat_id = u.chat_id
-    print(chat_id)
-    await skip_current_song(chat_id)
+    if isinstance(u, StreamAudioEnded) or isinstance(u, StreamVideoEnded):
+        chat_id = u.chat_id
+        print(chat_id)
+        await skip_current_song(chat_id)
 
 
 @call_py.on_closed_voice_chat()
