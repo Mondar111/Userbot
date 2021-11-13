@@ -5,13 +5,11 @@
 #
 
 import asyncio
-import base64
 from datetime import datetime
 
 from telethon import events
 from telethon.errors import BadRequestError
 from telethon.tl.functions.channels import EditBannedRequest
-from telethon.tl.functions.messages import ImportChatInviteRequest
 from telethon.tl.types import Channel
 
 import userbot.modules.sql_helper.gban_sql as gban_sql
