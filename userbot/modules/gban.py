@@ -2,75 +2,33 @@
 # Lord Userbot
 
 from telethon.events import ChatAction
-from telethon.tl.types import MessageEntityMentionName
 
 from userbot import ALIVE_NAME, DEVS, bot
 from userbot.events import man_cmd, register
+from userbot.modules.sql_helper.gmute_sql import is_gmuted
 
-
-async def get_full_user(event):
-    args = event.pattern_match.group(1).split(":", 1)
-    extra = None
-    if event.reply_to_msg_id and len(args) != 2:
-        previous_message = await event.get_reply_message()
-        user_obj = await event.client.get_entity(previous_message.sender_id)
-        extra = event.pattern_match.group(1)
-    elif len(args[0]) > 0:
-        user = args[0]
-        if len(args) == 2:
-            extra = args[1]
-        if user.isnumeric():
-            user = int(user)
-        if not user:
-            await event.edit("`Ini Tidak Mungkin Tanpa ID Pengguna`")
-            return
-        if event.message.entities is not None:
-            probable_user_mention_entity = event.message.entities[0]
-            if isinstance(probable_user_mention_entity, MessageEntityMentionName):
-                user_id = probable_user_mention_entity.user_id
-                user_obj = await event.client.get_entity(user_id)
-                return user_obj
-        try:
-            user_obj = await event.client.get_entity(user)
-        except Exception as err:
-            return await event.edit(
-                "`Terjadi Kesalahan... Mohon Lapor Ke ` @mrismanaziz", str(err)
-            )
-    return user_obj, extra
-
+from .admin import get_user_from_event
 
 # Ported For Lord-Userbot by liualvinas/Alvin
 
 
-@bot.on(ChatAction)
-async def handler(tele):
-    if not tele.user_joined and not tele.user_added:
-        return
-    try:
-        from userbot.modules.sql_helper.gmute_sql import is_gmuted
-
-        guser = await tele.get_user()
-        gmuted = is_gmuted(guser.id)
-    except BaseException:
-        return
-    if gmuted:
-        for i in gmuted:
-            if i.sender == str(guser.id):
-                chat = await tele.get_chat()
-                admin = chat.admin_rights
-                creator = chat.creator
-                if admin or creator:
-                    try:
-                        await client.edit_permissions(
-                            tele.chat_id, guser.id, view_messages=False
-                        )
-                        await tele.reply(
-                            f"**Gbanned Spoted** \n"
-                            f"**First Name :** [{guser.id}](tg://user?id={guser.id})\n"
-                            f"**Action :** `Banned`"
-                        )
-                    except BaseException:
-                        return
+@bot.on(events.ChatAction)
+async def _(event):
+    if event.user_joined or event.added_by:
+        user = await event.get_user()
+        chat = await event.get_chat()
+        if is_gmuted(user.id) and chat.admin_rights:
+            try:
+                await event.client.edit_permissions(
+                    chat.id,
+                    user.id,
+                    view_messages=False,
+                )
+                await event.reply(
+                    f"**#GBanned_User** Joined.\n\n** • First Name:** [{user.first_name}](tg://user?id={user.id})\n • **Action:** `Banned`"
+                )
+            except BaseException:
+                pass
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"gband(?: |$)(.*)"))
@@ -92,7 +50,7 @@ async def gben(userbot):
         user = userbot.chat
         reason = userbot.pattern_match.group(1)
     try:
-        user, reason = await get_full_user(userbot)
+        user, reason = await get_user_from_event(userbot)
     except BaseException:
         pass
     try:
@@ -161,7 +119,7 @@ async def gunben(userbot):
         user = userbot.chat
         reason = userbot.pattern_match.group(1)
     try:
-        user, reason = await get_full_user(userbot)
+        user, reason = await get_user_from_event(userbot)
     except BaseException:
         pass
     try:
