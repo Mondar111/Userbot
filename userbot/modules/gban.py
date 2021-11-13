@@ -1,11 +1,10 @@
 # by:koala @mixiologist
 # Lord Userbot
 
-from telethon import events
 
 from userbot import ALIVE_NAME, DEVS, bot
 from userbot.events import man_cmd, register
-from userbot.modules.sql_helper.gmute_sql import get_all_gmute, is_gmuted
+from userbot.modules.sql_helper.gmute_sql import get_all_gmute
 
 from .admin import get_user_from_event
 
