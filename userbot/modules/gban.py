@@ -177,4 +177,3 @@ async def gablist(event):
     else:
         GMUTE_LIST = "Belum ada Pengguna yang Di-Gmute"
     await event.edit(GMUTE_LIST)
-
