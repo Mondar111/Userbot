@@ -160,3 +160,21 @@ async def gunben(userbot):
         f"**User ID:** `{user.id}`\n"
         f"**Action:** `UnGBanned by {ALIVE_NAME}`"
     )
+
+
+@bot.on(man_cmd(outgoing=True, pattern=r"listgmute$"))
+async def gablist(event):
+    gmuted_users = is_gmuted()
+    GMUTE_LIST = "**List Global Banned Saat Ini**\n"
+    if len(gmuted_users) > 0:
+        for a_user in gmuted_users:
+            if a_user.reason:
+                GMUTE_LIST += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) **Reason** `{a_user.reason}`\n"
+            else:
+                GMUTE_LIST += (
+                    f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) `No Reason`\n"
+                )
+    else:
+        GMUTE_LIST = "Belum ada Pengguna yang Di-Gmute"
+    await event.edit(GMUTE_LIST)
+
