@@ -27,7 +27,6 @@ from telethon.tl.types import (
     ChatAdminRights,
     ChatBannedRights,
     InputChatPhotoEmpty,
-    MessageEntityMentionName,
     MessageMediaPhoto,
 )
 
@@ -35,7 +34,13 @@ from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, DEVS, bot
 from userbot.events import man_cmd, register
-from userbot.utils import _format, edit_delete, edit_or_reply, get_user_from_event, media_type
+from userbot.utils import (
+    _format,
+    edit_delete,
+    edit_or_reply,
+    get_user_from_event,
+    media_type,
+)
 
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "**Gambar Terlalu Kecil**"
