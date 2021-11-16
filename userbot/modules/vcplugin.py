@@ -53,7 +53,7 @@ def ytsearch(query: str):
 async def ytdl(format: str, link: str):
     stdout, stderr = await bash(f"yt-dlp -g -f {format} {link}")
     if stdout:
-        return 1, stdout[0]
+        return 1, stdout.split("\n")[0]
     return 0, stderr
 
 
