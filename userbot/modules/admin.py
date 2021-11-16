@@ -35,7 +35,7 @@ from userbot import ALIVE_NAME, BOTLOG, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, DEVS, bot
 from userbot.events import man_cmd, register
-from userbot.utils import _format, edit_delete, edit_or_reply, media_type
+from userbot.utils import _format, edit_delete, edit_or_reply, get_user_from_event, media_type
 
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "**Gambar Terlalu Kecil**"
@@ -421,21 +421,20 @@ async def gspider(gspdr):
     await gspdr.edit("**Berhasil Membisukan Pengguna!**")
     if gmute(user.id) is False:
         await gspdr.edit("**ERROR! Pengguna Sudah Dibisukan.**")
+    elif reason:
+        await gspdr.edit(
+            r"\\**#GMuted_User**//"
+            f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**User ID:** `{user.id}`\n"
+            f"**Reason:** `{reason}`"
+        )
     else:
-        if reason:
-            await gspdr.edit(
-                r"\\**#GMuted_User**//"
-                f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-                f"**User ID:** `{user.id}`\n"
-                f"**Reason:** `{reason}`"
-            )
-        else:
-            await gspdr.edit(
-                r"\\**#GMuted_User**//"
-                f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
-                f"**User ID:** `{user.id}`\n"
-                f"**Action:** `Global Muted by {ALIVE_NAME}`"
-            )
+        await gspdr.edit(
+            r"\\**#GMuted_User**//"
+            f"\n\n**First Name:** [{user.first_name}](tg://user?id={user.id})\n"
+            f"**User ID:** `{user.id}`\n"
+            f"**Action:** `Global Muted by {ALIVE_NAME}`"
+        )
 
 
 @bot.on(man_cmd(outgoing=True, pattern="zombies(?: |$)(.*)"))
@@ -636,73 +635,6 @@ async def _iundlt(event):
                     f"{msg.old.message}\n**Dikirim oleh** {_format.mentionuser(ruser.first_name ,ruser.id)}",
                     file=msg.old.media,
                 )
-
-
-async def get_user_from_event(
-    event, manevent=None, secondgroup=None, nogroup=False, noedits=False
-):
-    if manevent is None:
-        manevent = event
-    if nogroup is False:
-        if secondgroup:
-            args = event.pattern_match.group(2).split(" ", 1)
-        else:
-            args = event.pattern_match.group(1).split(" ", 1)
-    extra = None
-    try:
-        if args:
-            user = args[0]
-            if len(args) > 1:
-                extra = "".join(args[1:])
-            if user.isnumeric() or (user.startswith("-") and user[1:].isnumeric()):
-                user = int(user)
-            if event.message.entities:
-                probable_user_mention_entity = event.message.entities[0]
-                if isinstance(probable_user_mention_entity, MessageEntityMentionName):
-                    user_id = probable_user_mention_entity.user_id
-                    user_obj = await event.client.get_entity(user_id)
-                    return user_obj, extra
-            if isinstance(user, int) or user.startswith("@"):
-                user_obj = await event.client.get_entity(user)
-                return user_obj, extra
-    except Exception as e:
-        LOGS.error(str(e))
-    try:
-        if nogroup is False:
-            if secondgroup:
-                extra = event.pattern_match.group(2)
-            else:
-                extra = event.pattern_match.group(1)
-        if event.is_private:
-            user_obj = await event.get_chat()
-            return user_obj, extra
-        if event.reply_to_msg_id:
-            previous_message = await event.get_reply_message()
-            if previous_message.from_id is None:
-                if not noedits:
-                    await edit_delete(
-                        manevent, "**ERROR: Dia adalah anonymous admin!**", 60
-                    )
-                return None, None
-            user_obj = await event.client.get_entity(previous_message.sender_id)
-            return user_obj, extra
-        if not args:
-            if not noedits:
-                await edit_delete(
-                    manevent,
-                    "**Mohon Reply Pesan atau Berikan User ID/Username pengguna!**",
-                    60,
-                )
-            return None, None
-    except Exception as e:
-        LOGS.error(str(e))
-    if not noedits:
-        await edit_delete(
-            manevent,
-            "**Mohon Reply Pesan atau Berikan User ID/Username pengguna!**",
-            30,
-        )
-    return None, None
 
 
 CMD_HELP.update(
