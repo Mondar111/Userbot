@@ -28,8 +28,13 @@ async def sudo(event):
 @man_cmd(pattern="addsudo(?:\s|$)([\s\S]*)")
 async def add(event):
     suu = event.text[9:]
+    self_user = await event.client.get_me()
     if f"{cmd}add " in event.text:
         return
+    if user.id == self_user.id:
+        return await edit_or_reply(
+            event, "**Anda tidak dapat menambahkan diri anda ke sudo**"
+        )
     xxnx = await edit_or_reply(event, "`Processing...`")
     bot = "SUDO_USERS"
     reply = await event.get_reply_message()
@@ -66,6 +71,9 @@ async def add(event):
 @man_cmd(pattern="delsudo(?:\s|$)([\s\S]*)")
 async def _(event):
     suu = event.text[8:]
+    self_user = await event.client.get_me()
+    if user.id == self_user.id:
+        return await edit_or_reply(event, "**Heuuu Stress**")
     xxx = await edit_or_reply(event, "`Processing...`")
     reply = await event.get_reply_message()
     if not suu and not reply:
