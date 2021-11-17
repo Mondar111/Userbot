@@ -30,6 +30,7 @@ import time
 from os.path import basename
 from typing import Optional, Union
 
+from emoji import get_emoji_regexp
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from html_telegraph_poster import TelegraphPoster
@@ -47,6 +48,10 @@ from userbot.utils.format import md_to_text, paste_message
 
 from .FastTelethon import download_file as downloadable
 from .FastTelethon import upload_file as uploadable
+
+
+def deEmojify(inputString):
+    return get_emoji_regexp().sub("", inputString)
 
 
 async def md5(fname: str) -> str:
@@ -376,6 +381,21 @@ async def run_cmd(cmd: list) -> tuple[bytes, bytes]:
     t_resp = out.strip()
     e_resp = err.strip()
     return t_resp, e_resp
+
+
+# https://github.com/TeamUltroid/pyUltroid/blob/31c271cf4d35ab700e5880e952e54c82046812c2/pyUltroid/functions/helper.py#L154
+
+
+async def bash(cmd):
+    process = await asyncio.create_subprocess_shell(
+        cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, stderr = await process.communicate()
+    err = stderr.decode().strip()
+    out = stdout.decode().strip()
+    return out, err
 
 
 def post_to_telegraph(title, html_format_content):

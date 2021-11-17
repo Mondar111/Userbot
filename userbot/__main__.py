@@ -24,7 +24,9 @@ from userbot import ALIVE_NAME, BOT_VER, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import LOGS, UPSTREAM_REPO_BRANCH, bot, call_py
 from userbot.modules import ALL_MODULES
-from userbot.utils import autobot, start_assistant
+
+
+from userbot.utils import autobot, checking, start_assistant
 
 assistant = os.environ.get("BOTMODE", None)
 
@@ -44,7 +46,7 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
 LOGS.info(
-    f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Gabung ke Grup https://t.me/SharingUserbot"
+    f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/SharingUserbot"
 )
 
 LOGS.info(f"Man-Userbot ⚙️ V{BOT_VER} [🔥 BERHASIL DIAKTIFKAN! 🔥]")
@@ -78,7 +80,6 @@ async def man_userbot_on():
             )
     except Exception as e:
         LOGS.info(str(e))
-    # KALO LU NGEFORK LINK CH & GRUP PUNYA GUA NYA JANGAN DI HAPUS YA GOBLOK 😡
     try:
         await bot(JoinChannelRequest("@Lunatic0de"))
         await bot(JoinChannelRequest("@SharingUserbot"))
@@ -86,8 +87,7 @@ async def man_userbot_on():
         pass
 
 
-# JANGAN DI HAPUS GOBLOK 😡 LU COPY/EDIT AJA TINGGAL TAMBAHIN PUNYA LU
-# DI HAPUS GUA GBAN YA 🥴 GUA TANDAIN LU AKUN TELENYA 😡
+bot.loop.create_task(checking())
 bot.loop.create_task(man_userbot_on())
 bot.loop.create_task(autobot())
 idle()

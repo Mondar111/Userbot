@@ -421,31 +421,21 @@ async def _(event):
 @bot.on(man_cmd(outgoing=True, pattern=r"getsticker$"))
 async def sticker_to_png(sticker):
     if not sticker.is_reply:
-        await sticker.edit("`NULL information to fetch...`")
+        await sticker.edit("**Harap balas ke stiker**")
         return False
-
     img = await sticker.get_reply_message()
     if not img.document:
-        await sticker.edit("`Mohon Balas Ke Sticker`")
+        await sticker.edit("**Maaf , Ini Bukan Sticker**")
         return False
-
-    try:
-        img.document.attributes[1]
-    except Exception:
-        await sticker.edit("`Maaf , Ini Bukanlah Sticker`")
-        return
-
-    with io.BytesIO() as image:
-        await sticker.client.download_media(img, image)
-        image.name = "sticker.png"
-        image.seek(0)
-        try:
-            await img.reply(file=image, force_document=True)
-        except Exception:
-            await sticker.edit("`Tidak Dapat Mengirim File...`")
-        else:
-            await sticker.delete()
-    return
+    await sticker.edit("`Berhasil Mengambil Sticker!`")
+    image = io.BytesIO()
+    await sticker.client.download_media(img, image)
+    image.name = "sticker.png"
+    image.seek(0)
+    await sticker.client.send_file(
+        sticker.chat_id, image, reply_to=img.id, force_document=True
+    )
+    await sticker.delete()
 
 
 @bot.on(man_cmd(outgoing=True, pattern=r"stickers ?([\s\S]*)"))
@@ -570,10 +560,8 @@ CMD_HELP.update(
         \n  •  **Function : **Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker.\
         \n\n  •  **Syntax :** `{cmd}get`\
         \n  •  **Function : **Balas ke sticker untuk mendapatkan foto sticker\
-        \n\n  •  **Syntax :** `{cmd}stoi`\
-        \n  •  **Function : **Balas Ke Stcker Untuk Mendapatkan File 'PNG' Sticker.\
         \n\n  •  **Syntax :** `{cmd}itos`\
-        \n  •  **Function : **Balas ke gambar untuk membuat foto menjadi sticker\
+        \n  •  **Function : **Balas ke foto untuk membuat foto menjadi sticker\
     "
     }
 )

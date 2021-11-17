@@ -29,7 +29,6 @@ import qrcode
 import requests
 from barcode.writer import ImageWriter
 from bs4 import BeautifulSoup
-from emoji import get_emoji_regexp
 from googletrans import LANGUAGES, Translator
 from gtts import gTTS
 from gtts.lang import tts_langs
@@ -592,11 +591,6 @@ async def download_video(v_url):
         await v_url.delete()
 
 
-def deEmojify(inputString):
-    """Remove emojis and other non-safe characters from string"""
-    return get_emoji_regexp().sub("", inputString)
-
-
 @bot.on(man_cmd(outgoing=True, pattern=r"rbg(?: |$)(.*)"))
 async def kbg(remob):
     """For .rbg command, Remove Image Background."""
@@ -641,7 +635,6 @@ async def kbg(remob):
             await remob.client.send_file(
                 remob.chat_id,
                 remove_bg_image,
-                caption="Support @SharingUserbot",
                 force_document=True,
                 reply_to=message_id,
             )

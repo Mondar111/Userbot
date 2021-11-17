@@ -220,18 +220,16 @@ async def _(dyno):
         )
     xx = await edit_or_reply(dyno, "**Sedang Mengambil Logs Heroku**")
     data = app.get_log()
-    await edit_or_reply(
-        xx, data, deflink=True, linktext="**✣ Ini Logs Heroku Anda : Lihat**"
-    )
+    await edit_or_reply(xx, data, deflink=True, linktext="**✣ Ini Logs Heroku Anda :**")
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"getsql ?(.*)"))
+@bot.on(man_cmd(outgoing=True, pattern=r"getdb ?(.*)"))
 async def getsql(event):
     var_ = event.pattern_match.group(1).upper()
     xxnx = await edit_or_reply(event, f"**Getting variable** `{var_}`")
     if var_ == "":
         return await xxnx.edit(
-            f"**Invalid Syntax !!** \n\nKetik `{cmd}getsql NAMA_VARIABLE`"
+            f"**Invalid Syntax !!** \n\nKetik `{cmd}getdb NAMA_VARIABLE`"
         )
     try:
         sql_v = gvarstatus(var_)
@@ -243,7 +241,7 @@ async def getsql(event):
     )
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"setsql ?(.*)"))
+@bot.on(man_cmd(outgoing=True, pattern=r"setdb ?(.*)"))
 async def setsql(event):
     hel_ = event.pattern_match.group(1)
     var_ = hel_.split(" ")[0].upper()
@@ -261,7 +259,7 @@ async def setsql(event):
     await xxnx.edit(f"**Variable** `{var_}` **successfully added with value** `{valu}`")
 
 
-@bot.on(man_cmd(outgoing=True, pattern=r"delsql ?(.*)"))
+@bot.on(man_cmd(outgoing=True, pattern=r"deldb ?(.*)"))
 async def delsql(event):
     var_ = event.pattern_match.group(1).upper()
     xxnx = await edit_or_reply(event, f"**Deleting Variable** `{var_}`")
@@ -296,12 +294,12 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "sql": f"**Plugin : **`sql`\
-        \n\n  •  **Syntax :** `{cmd}setsql <nama var> <value>`\
+        "database": f"**Plugin : **`database`\
+        \n\n  •  **Syntax :** `{cmd}setdb <nama var> <value>`\
         \n  •  **Function : **Tambahkan Variabel SQL Tanpa Merestart userbot.\
-        \n\n  •  **Syntax :** `{cmd}getsql <nama var>`\
+        \n\n  •  **Syntax :** `{cmd}getdb <nama var>`\
         \n  •  **Function : **Dapatkan Variabel SQL Yang Ada Harap Gunakan Di Grup Private Anda!\
-        \n\n  •  **Syntax :** `{cmd}delsql <nama var>`\
+        \n\n  •  **Syntax :** `{cmd}deldb <nama var>`\
         \n  •  **Function : **Untuk Menghapus Variabel SQL\
     "
     }
