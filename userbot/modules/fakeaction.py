@@ -13,8 +13,7 @@ import math
 import time
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, bot
-from userbot.events import man_cmd
+from userbot import CMD_HELP
 from userbot.utils import edit_delete, extract_time, man_cmd
 
 
