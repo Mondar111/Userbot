@@ -9,7 +9,6 @@ from userbot.events import man_cmd, register
 from userbot.modules.sql_helper.gmute_sql import get_all_gmute
 from userbot.utils import get_user_from_event
 
-
 # Ported For Lord-Userbot by liualvinas/Alvin
 
 

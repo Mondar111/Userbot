@@ -39,7 +39,6 @@ def mentionuser(name, userid):
     return f"[{name}](tg://user?id={userid})"
 
 
-
 @man_cmd(pattern="gban(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgban(?: |$)(.*)")
 async def gban(event):

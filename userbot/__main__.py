@@ -24,8 +24,6 @@ from userbot import ALIVE_NAME, BOT_VER, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import LOGS, UPSTREAM_REPO_BRANCH, bot, call_py
 from userbot.modules import ALL_MODULES
-
-
 from userbot.utils import autobot, checking, start_assistant
 
 assistant = os.environ.get("BOTMODE", None)
