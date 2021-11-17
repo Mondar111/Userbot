@@ -23,8 +23,7 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from userbot import ALIVE_NAME, BOT_VER, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import LOGS, UPSTREAM_REPO_BRANCH, bot, call_py
-from userbot.modules import ALL_MODULES
-from userbot.utils import autobot, checking, start_assistant
+from userbot.utils import autobot, checking, load_module, start_assistant
 
 assistant = os.environ.get("BOTMODE", None)
 
@@ -40,14 +39,22 @@ except PhoneNumberInvalidError:
     print(INVALID_PH)
     sys.exit(1)
 
-for module_name in ALL_MODULES:
-    imported_module = import_module("userbot.modules." + module_name)
 
 LOGS.info(
     f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/SharingUserbot"
 )
 
 LOGS.info(f"Man-Userbot ⚙️ V{BOT_VER} [🔥 BERHASIL DIAKTIFKAN! 🔥]")
+
+
+async def module():
+    path = "userbot/modules/*.py"
+    files = glob.glob(path)
+    for name in files:
+        with open(name) as f:
+            path1 = Path(f.name)
+            shortname = path1.stem
+            load_module(shortname.replace(".py", ""))
 
 
 async def assistants():
@@ -67,6 +74,7 @@ async def assistants():
 
 
 bot.loop.run_until_complete(assistants())
+bot.loop.run_until_complete(module())
 
 
 async def man_userbot_on():
