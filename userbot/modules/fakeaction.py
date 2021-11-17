@@ -21,7 +21,7 @@ from userbot.utils import edit_delete, extract_time
 @bot.on(
     man_cmd(
         outgoing=True,
-        pattern="f(typing|audio|contact|document|game|location|photo|round|video) ?(.*)",
+        pattern="f(typing|audio|contact|document|game|location|photo|round|sticker|video) ?(.*)",
     )
 )
 async def _(e):
