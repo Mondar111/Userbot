@@ -39,13 +39,6 @@ except PhoneNumberInvalidError:
     sys.exit(1)
 
 
-LOGS.info(
-    f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/SharingUserbot"
-)
-
-LOGS.info(f"Man-Userbot ⚙️ V{BOT_VER} [🔥 BERHASIL DIAKTIFKAN! 🔥]")
-
-
 async def module():
     path = "userbot/modules/*.py"
     files = glob.glob(path)
@@ -74,6 +67,13 @@ async def assistants():
 
 bot.loop.run_until_complete(assistants())
 bot.loop.run_until_complete(module())
+
+
+LOGS.info(
+    f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/SharingUserbot"
+)
+
+LOGS.info(f"Man-Userbot ⚙️ V{BOT_VER} [🔥 BERHASIL DIAKTIFKAN! 🔥]")
 
 
 async def man_userbot_on():
