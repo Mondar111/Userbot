@@ -5,7 +5,7 @@ from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_HANDLER, SUDO_USERS
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, man_cmd
 
 Heroku = heroku3.from_key(HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
@@ -28,6 +28,7 @@ async def sudo(event):
 @man_cmd(pattern="addsudo(?:\s|$)([\s\S]*)")
 async def add(event):
     suu = event.text[9:]
+    user = await get_user_from_event(event)
     self_user = await event.client.get_me()
     if f"{cmd}add " in event.text:
         return
@@ -71,6 +72,7 @@ async def add(event):
 @man_cmd(pattern="delsudo(?:\s|$)([\s\S]*)")
 async def _(event):
     suu = event.text[8:]
+    user = await get_user_from_event(event)
     self_user = await event.client.get_me()
     if user.id == self_user.id:
         return await edit_or_reply(event, "**Heuuu Stress**")
