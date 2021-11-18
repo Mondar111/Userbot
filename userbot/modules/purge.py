@@ -160,8 +160,7 @@ async def purgto(purgke):
             await purgke.delete()
         man = await edit_delete(
             purgke,
-            f"**Fast purge complete!**\n**Berhasil Menghapus** `{message}` **Pesan**",
-            2,
+            f"**Fast purge complete!**\n**Berhasil Menghapus** `{message}` **Pesan**", 5
         )
     except Exception as er:
         await purgke.edit(f"**ERROR:** `{er}`")
