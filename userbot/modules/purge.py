@@ -15,9 +15,9 @@ from asyncio import sleep
 from telethon.errors import rpcbaseerrors
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, DEVS, bot
+from userbot import CMD_HELP, DEVS
 from userbot.events import register
-from userbot.utils import edit_delete, edit_or_reply, man_cmd
+from userbot.utils import edit_delete, man_cmd
 
 
 @man_cmd(pattern="purge$")
@@ -129,8 +129,8 @@ async def purgfrm(purgdari):
     prgstrtmsg = purgdari.reply_to_msg_id
     purgechat[purgdari.chat_id] = prgstrtmsg
     manubot = await edit_delete(
-        purgdari, 
-        "**Pesan ini telah dipilih sebagai awal menghapus, balas pesan lain dengan** `.purgeto` **untuk menghapusnya**"
+        purgdari,
+        "**Pesan ini telah dipilih sebagai awal menghapus, balas pesan lain dengan** `.purgeto` **untuk menghapusnya**",
     )
     await sleep(2)
     await manubot.delete()
@@ -141,8 +141,8 @@ async def purgto(purgke):
         prgstrtmsg = purgechat[purgke.chat_id]
     except KeyError:
         manubot = await edit_delete(
-            purgke, 
-            "**Balas pesan dengan** `.purgefrom` **terlebih dahulu lalu gunakan** `.purgeto`"
+            purgke,
+            "**Balas pesan dengan** `.purgefrom` **terlebih dahulu lalu gunakan** `.purgeto`",
         )
         return
     try:
@@ -162,7 +162,8 @@ async def purgto(purgke):
             await purgke.client.delete_messages(chat, pmsgs)
             await purgke.delete()
         man = await edit_delete(
-            purgke, f"**Fast purge complete!**\n**Berhasil Menghapus** `{message}` **Pesan**"
+            purgke,
+            f"**Fast purge complete!**\n**Berhasil Menghapus** `{message}` **Pesan**",
         )
     except Exception as er:
         await purgke.edit(f"**ERROR:** `{er}`")
