@@ -72,7 +72,7 @@ async def add(event):
     heroku_Config[var] = newsudo
 
 
-@bot.on(man_cmd(outgoing=True, pattern="delsudo(?:\s|$)([\s\S]*)"))
+@bot.on(man_cmd(outgoing=True, pattern=r"delsudo(?:\s|$)([\s\S]*)"))
 async def _(event):
     suu = event.text[8:]
     reply = await event.get_reply_message()
