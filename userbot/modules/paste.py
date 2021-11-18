@@ -40,7 +40,7 @@ async def paste(pstl):
         else:
             message = message.message
 
-    xxnx = await edit_or_reply(pstl"`Pasting text . . .`")
+    xxnx = await edit_or_reply(pstl, "`Pasting text . . .`")
     async with PasteBin(message) as client:
         if service:
             service = service.strip()
