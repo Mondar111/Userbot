@@ -4,7 +4,7 @@ import heroku3
 from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_HANDLER, SUDO_USERS
+from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_HANDLER, SUDO_USERS, bot
 from userbot.events import man_cmd
 from userbot.utils import edit_delete, edit_or_reply, get_user_from_event
 
@@ -30,13 +30,11 @@ async def sudo(event):
 async def add(event):
     suu = event.text[9:]
     user = await get_user_from_event(event)
-    self_user = await event.client.get_me()
-    if f"{cmd}add " in event.text:
+    if not user:
         return
-    if user.id == self_user.id:
-        return await edit_or_reply(
-            event, "**Anda tidak dapat menambahkan diri anda ke sudo**"
-        )
+    if user.id == (await event.client.get_me()).id:
+        await edit_or_reply(event, "**Ngapain ngesudo diri sendiri Goblok Kan lu yang punya bot 🐽**")
+        return
     xxnx = await edit_or_reply(event, "`Processing...`")
     bot = "SUDO_USERS"
     reply = await event.get_reply_message()
@@ -74,9 +72,11 @@ async def add(event):
 async def _(event):
     suu = event.text[8:]
     user = await get_user_from_event(event)
-    self_user = await event.client.get_me()
-    if user.id == self_user.id:
-        return await edit_or_reply(event, "**Heuuu Stress**")
+    if not user:
+        return
+    if user.id == (await event.client.get_me()).id:
+        await edit_or_reply(event, "**Heuuu stess 🐽**")
+        return
     xxx = await edit_or_reply(event, "`Processing...`")
     reply = await event.get_reply_message()
     if not suu and not reply:
