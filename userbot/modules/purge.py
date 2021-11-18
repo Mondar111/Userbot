@@ -27,10 +27,8 @@ async def fastpurger(purg):
     msgs = []
     itermsg = purg.client.iter_messages(chat, min_id=purg.reply_to_msg_id)
     count = 0
-
     if purg.reply_to_msg_id is None:
-        return await purg.edit("**Mohon Balas Ke Pesan**")
-
+        return await edit_delete(purg, "**Mohon Balas Ke Pesan**")
     async for msg in itermsg:
         msgs.append(msg)
         count += 1
@@ -46,7 +44,6 @@ async def fastpurger(purg):
         + str(count)
         + "` **Pesan**",
     )
-
     await sleep(2)
     await done.delete()
 
@@ -57,13 +54,11 @@ async def purgeme(delme):
     message = delme.text
     count = int(message[9:])
     i = 1
-
     async for message in delme.client.iter_messages(delme.chat_id, from_user="me"):
         if i > count + 1:
             break
         i += 1
         await message.delete()
-
     smsg = await delme.client.send_message(
         delme.chat_id,
         "**Berhasil Menghapus** " + str(count) + " **Kenangan**",
@@ -165,7 +160,7 @@ async def purgto(purgke):
             await purgke.delete()
         man = await edit_delete(
             purgke,
-            f"**Fast purge complete!**\n**Berhasil Menghapus** `{message}` **Pesan**",
+            f"**Fast purge complete!**\n**Berhasil Menghapus** `{message}` **Pesan**", 2,
         )
     except Exception as er:
         await purgke.edit(f"**ERROR:** `{er}`")
