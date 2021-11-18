@@ -39,7 +39,7 @@ async def add(event):
     user, reason = await get_user_from_event(event)
     if not user and not reply:
         return await edit_delete(
-            xxnx,
+            event,
             "Balas ke pengguna atau berikan user id untuk menambahkannya ke daftar pengguna sudo anda.",
             45,
         )
@@ -81,7 +81,7 @@ async def _(event):
     user, reason = await get_user_from_event(event)
     if not user and not reply:
         return await edit_delete(
-            xxx,
+            event,
             "Balas ke pengguna atau berikan user id untuk menghapusnya dari daftar pengguna sudo Anda.",
             45,
         )
