@@ -128,9 +128,8 @@ async def purgfrm(purgdari):
     manubot = await edit_delete(
         purgdari,
         "**Pesan ini telah dipilih sebagai awal menghapus, balas pesan lain dengan** `.purgeto` **untuk menghapusnya**",
+        5,
     )
-    await sleep(2)
-    await manubot.delete()
 
 
 async def purgto(purgke):
@@ -140,6 +139,7 @@ async def purgto(purgke):
         manubot = await edit_delete(
             purgke,
             "**Balas pesan dengan** `.purgefrom` **terlebih dahulu lalu gunakan** `.purgeto`",
+            5,
         )
         return
     try:
