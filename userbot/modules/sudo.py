@@ -37,8 +37,6 @@ async def sudo(event):
 async def add(event):
     suu = event.text[9:]
     user, reason = await get_user_from_event(event)
-    if user is None:
-        return
     if user.id == (await event.client.get_me()).id:
         return await edit_or_reply(
             event, "**Ngapain ngesudo diri sendiri Goblok Kan lu yang punya bot 🐽**"
@@ -82,8 +80,6 @@ async def add(event):
 async def _(event):
     suu = event.text[8:]
     user, reason = await get_user_from_event(event)
-    if user is None:
-        return
     if user.id == (await event.client.get_me()).id:
         await edit_or_reply(event, "**Heuuu stess 🐽**")
         return
