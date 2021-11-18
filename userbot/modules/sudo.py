@@ -5,14 +5,15 @@ from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_HANDLER, SUDO_USERS
-from userbot.utils import edit_delete, edit_or_reply, get_user_from_event, man_cmd
+from userbot.events import man_cmd
+from userbot.utils import edit_delete, edit_or_reply, get_user_from_event 
 
 Heroku = heroku3.from_key(HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
 sudousers = os.environ.get("SUDO_USERS") or ""
 
 
-@man_cmd(pattern="sudo$")
+@bot.on(man_cmd(outgoing=True, pattern=r"sudo$"))
 async def sudo(event):
     sudo = "True" if SUDO_USERS else "False"
     users = sudousers
@@ -25,7 +26,7 @@ async def sudo(event):
         await edit_delete(event, "🔮 **Sudo:** `Disabled`")
 
 
-@man_cmd(pattern="addsudo(?:\s|$)([\s\S]*)")
+@bot.on(man_cmd(outgoing=True, pattern=r"addsudo(?:\s|$)([\s\S]*)"))
 async def add(event):
     suu = event.text[9:]
     user = await get_user_from_event(event)
@@ -69,7 +70,7 @@ async def add(event):
     heroku_Config[bot] = newsudo
 
 
-@man_cmd(pattern="delsudo(?:\s|$)([\s\S]*)")
+@bot.on(man_cmd(outgoing=True, pattern="delsudo(?:\s|$)([\s\S]*)"))
 async def _(event):
     suu = event.text[8:]
     user = await get_user_from_event(event)
