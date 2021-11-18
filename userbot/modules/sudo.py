@@ -43,7 +43,7 @@ async def add(event):
         return await edit_or_reply(
             event, "**Ngapain ngesudo diri sendiri Goblok Kan lu yang punya bot 🐽**"
         )
-    if replied_user.id in SUDO_USERS:
+    if user.id in SUDO_USERS:
         return await edit_delete(event, "dia sudah ada di daftar sudo anda")
     xxnx = await edit_or_reply(event, "`Processing...`")
     bot = "SUDO_USERS"
