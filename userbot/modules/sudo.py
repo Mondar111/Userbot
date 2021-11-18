@@ -40,10 +40,11 @@ async def add(event):
     if user is None:
         return
     if user.id == (await event.client.get_me()).id:
-        await edit_or_reply(
+        return await edit_or_reply(
             event, "**Ngapain ngesudo diri sendiri Goblok Kan lu yang punya bot 🐽**"
         )
-        return
+    if replied_user.id in SUDO_USERS:
+        return await edit_delete(event, "dia sudah ada di daftar sudo anda")
     xxnx = await edit_or_reply(event, "`Processing...`")
     bot = "SUDO_USERS"
     reply = await event.get_reply_message()
