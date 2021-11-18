@@ -4,7 +4,14 @@ import heroku3
 from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, HEROKU_API_KEY, HEROKU_APP_NAME, SUDO_HANDLER, SUDO_USERS, bot
+from userbot import (
+    CMD_HELP,
+    HEROKU_API_KEY,
+    HEROKU_APP_NAME,
+    SUDO_HANDLER,
+    SUDO_USERS,
+    bot,
+)
 from userbot.events import man_cmd
 from userbot.utils import edit_delete, edit_or_reply, get_user_from_event
 
@@ -33,7 +40,9 @@ async def add(event):
     if not user:
         return
     if user.id == (await event.client.get_me()).id:
-        await edit_or_reply(event, "**Ngapain ngesudo diri sendiri Goblok Kan lu yang punya bot 🐽**")
+        await edit_or_reply(
+            event, "**Ngapain ngesudo diri sendiri Goblok Kan lu yang punya bot 🐽**"
+        )
         return
     xxnx = await edit_or_reply(event, "`Processing...`")
     bot = "SUDO_USERS"
