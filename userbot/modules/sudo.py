@@ -36,10 +36,10 @@ async def sudo(event):
 @bot.on(man_cmd(outgoing=True, pattern=r"addsudo(?:\s|$)([\s\S]*)"))
 async def add(event):
     suu = event.text[9:]
-    user = await get_user_from_event(event)
-    if not user:
+    replied_user, error_i_a = await get_user_from_event(event)
+    if replied_user is None:
         return
-    if user.id == (await event.client.get_me()).id:
+    if replied_user.id == (await event.client.get_me()).id:
         await edit_or_reply(
             event, "**Ngapain ngesudo diri sendiri Goblok Kan lu yang punya bot 🐽**"
         )
@@ -80,11 +80,13 @@ async def add(event):
 @bot.on(man_cmd(outgoing=True, pattern="delsudo(?:\s|$)([\s\S]*)"))
 async def _(event):
     suu = event.text[8:]
-    user = await get_user_from_event(event)
-    if not user:
+    replied_user, error_i_a = await get_user_from_event(event)
+    if replied_user is None:
         return
-    if user.id == (await event.client.get_me()).id:
-        await edit_or_reply(event, "**Heuuu stess 🐽**")
+    if replied_user.id == (await event.client.get_me()).id:
+        await edit_or_reply(
+            event, "**Heuuu stess 🐽**"
+        )
         return
     xxx = await edit_or_reply(event, "`Processing...`")
     reply = await event.get_reply_message()
