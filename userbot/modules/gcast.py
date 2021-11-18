@@ -11,7 +11,7 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 from userbot import CMD_HANDLER as cmd
-from userbot import CMD_HELP, bot
+from userbot import CMD_HELP
 from userbot.utils import edit_delete, edit_or_reply, man_cmd
 
 GCAST_BLACKLIST = [
