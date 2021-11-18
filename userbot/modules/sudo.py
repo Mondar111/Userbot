@@ -84,9 +84,7 @@ async def _(event):
     if replied_user is None:
         return
     if replied_user.id == (await event.client.get_me()).id:
-        await edit_or_reply(
-            event, "**Heuuu stess 🐽**"
-        )
+        await edit_or_reply(event, "**Heuuu stess 🐽**")
         return
     xxx = await edit_or_reply(event, "`Processing...`")
     reply = await event.get_reply_message()
