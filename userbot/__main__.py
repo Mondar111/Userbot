@@ -10,10 +10,8 @@
 #
 """ Userbot start point """
 
-import glob
-import os
 import sys
-from pathlib import Path
+from importlib import import_module
 
 from pytgcalls import idle
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
@@ -22,9 +20,8 @@ from telethon.tl.functions.channels import JoinChannelRequest
 from userbot import ALIVE_NAME, BOT_VER, BOTLOG_CHATID
 from userbot import CMD_HANDLER as cmd
 from userbot import LOGS, UPSTREAM_REPO_BRANCH, bot, call_py
-from userbot.utils import autobot, checking, load_module, start_assistant
-
-assistant = os.environ.get("BOTMODE", None)
+from userbot.modules import ALL_MODULES
+from userbot.utils import autobot, checking
 
 INVALID_PH = (
     "\nERROR: Nomor Telepon yang kamu masukkan SALAH."
@@ -38,36 +35,8 @@ except PhoneNumberInvalidError:
     print(INVALID_PH)
     sys.exit(1)
 
-
-async def module():
-    path = "userbot/modules/*.py"
-    files = glob.glob(path)
-    for name in files:
-        with open(name) as f:
-            path1 = Path(f.name)
-            shortname = path1.stem
-            load_module(shortname.replace(".py", ""))
-
-
-async def assistants():
-    if assistant == "ON":
-        path = "userbot/modules/assistant/*.py"
-        files = glob.glob(path)
-        for name in files:
-            with open(name) as f:
-                path1 = Path(f.name)
-                shortname = path1.stem
-                try:
-                    start_assistant(shortname.replace(".py", ""))
-                except Exception as e:
-                    print(e)
-    else:
-        LOGS.info("Assistant Not Loaded ")
-
-
-bot.loop.run_until_complete(assistants())
-bot.loop.run_until_complete(module())
-
+for module_name in ALL_MODULES:
+    imported_module = import_module("userbot.modules." + module_name)
 
 LOGS.info(
     f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/SharingUserbot"
