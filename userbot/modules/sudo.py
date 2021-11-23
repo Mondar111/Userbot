@@ -41,7 +41,9 @@ async def add(event):
         )
     if suu:
         if not suu.isnumeric():
-            return await edit_delete(xxnx, "Berikan User ID saja atau reply ke pesan penggunanya.", 45)
+            return await edit_delete(
+                xxnx, "Berikan User ID saja atau reply ke pesan penggunanya.", 45
+            )
     if HEROKU_APP_NAME is not None:
         app = Heroku.app(HEROKU_APP_NAME)
     else:
@@ -79,7 +81,9 @@ async def _(event):
         )
     if suu:
         if not suu.isnumeric():
-            return await edit_delete(xxnx, "Berikan User ID saja atau reply ke pesan penggunanya.", 45)
+            return await edit_delete(
+                xxnx, "Berikan User ID saja atau reply ke pesan penggunanya.", 45
+            )
     if HEROKU_APP_NAME is not None:
         app = Heroku.app(HEROKU_APP_NAME)
     else:
