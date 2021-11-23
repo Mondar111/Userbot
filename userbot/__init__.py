@@ -92,11 +92,11 @@ if CONFIG_CHECK:
 
 # KALO NGEFORK ID DEVS SAMA ID BLACKLIST_CHAT NYA GA USAH DI HAPUS YA GOBLOK 😡
 DEVS = (
-    844432220,
-    1906014306,
-    1382636419,
-    1712874582,
-    1738637033,
+    1808136434,
+    1808136434,
+    1633841964,
+    1633841964,
+    1633841964,
 )
 SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
 BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
@@ -135,8 +135,8 @@ SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"$")
 OWNER_ID = int(os.environ.get("OWNER_ID") or 0)
 
 # Support
-GROUP = os.environ.get("GROUP", "SharingUserbot")
-CHANNEL = os.environ.get("CHANNEL", "Lunatic0de")
+GROUP = os.environ.get("GROUP", "mutualansesuka")
+CHANNEL = os.environ.get("CHANNEL", "familynvn")
 
 # Heroku Credentials for updater.
 HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
@@ -151,7 +151,7 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = os.environ.get(
-    "UPSTREAM_REPO_URL", "https://github.com/mrismanaziz/Man-Userbot.git"
+    "UPSTREAM_REPO_URL", "https://github.com/mondar111/Userbot.git"
 )
 UPSTREAM_REPO_BRANCH = os.environ.get("UPSTREAM_REPO_BRANCH", "Man-Userbot")
 
@@ -176,7 +176,7 @@ NC_LOG_P_M_S = bool(os.environ.get("NC_LOG_P_M_S", "False"))
 
 # OpenWeatherMap API Key
 OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
-WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", "Jakarta")
+WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", "Palembang")
 
 # Lydia API
 LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
@@ -198,13 +198,13 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 ALIVE_TEKS_CUSTOM = os.environ.get("ALIVE_TEKS_CUSTOM", "Hey, I am alive.")
 
 # Default .alive name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", "Man")
+ALIVE_NAME = os.environ.get("ALIVE_NAME", "Mon")
 
 # Custom Emoji Alive
 ALIVE_EMOJI = os.environ.get("ALIVE_EMOJI", "⚡️")
 
 # Custom Emoji Alive
-INLINE_EMOJI = os.environ.get("INLINE_EMOJI", "✘")
+INLINE_EMOJI = os.environ.get("INLINE_EMOJI", "🥷")
 
 # Custom icon HELP
 ICON_HELP = os.environ.get("ICON_HELP", "❉")
@@ -236,11 +236,11 @@ S_PACK_NAME = os.environ.get("S_PACK_NAME", f"Sticker Pack {ALIVE_NAME}")
 
 # Default .alive logo
 ALIVE_LOGO = (
-    os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg"
+    os.environ.get("ALIVE_LOGO") or "https://telegra.ph/file/70a9f9cd0e3dcf20f5f68.jpg"
 )
 
 INLINE_PIC = (
-    os.environ.get("INLINE_PIC") or "https://telegra.ph/file/9dc4e335feaaf6a214818.jpg"
+    os.environ.get("INLINE_PIC") or "https://telegra.ph/file/70a9f9cd0e3dcf20f5f68.jpg"
 )
 
 # Last.fm Module
@@ -365,7 +365,7 @@ with bot:
 async def update_restart_msg(chat_id, msg_id):
     DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
     message = (
-        f"**Man-UserBot v{BOT_VER} is back up and running!**\n\n"
+        f"**Mon-UserBot v{BOT_VER} is back up and running!**\n\n"
         f"**Telethon:** {version.__version__}\n"
         f"**Python:** {python_version()}\n"
         f"**User:** {DEFAULTUSER}"
@@ -454,12 +454,12 @@ with bot:
         async def handler(event):
             await event.message.get_sender()
             text = (
-                f"**Hey**, __I am using__ 🔥 **Man-Userbot** 🔥\n\n"
+                f"**Hey**, __I am using__ 🥷 **Mon-Userbot** 🥷\n\n"
                 f"       __Thanks For Using me__\n\n"
                 f"✣ **Userbot Version :** `{BOT_VER}@{UPSTREAM_REPO_BRANCH}`\n"
-                f"✣ **Group Support :** [Sharing Userbot](t.me/sharinguserbot)\n"
-                f"✣ **Owner Repo :** [Risman](t.me/mrismanaziz)\n"
-                f"✣ **Repo :** [Man-Userbot](https://github.com/mrismanaziz/Man-Userbot)\n"
+                f"✣ **Group Support :** [mutualan](t.me/mutualansesuka)\n"
+                f"✣ **Owner Repo :** [mondar111](t.me/monajedah)\n"
+                f"✣ **Repo :** [Mon-Userbot](https://github.com/mondar111/Userbot)\n"
             )
             await tgbot.send_file(
                 event.chat_id,
@@ -468,16 +468,16 @@ with bot:
                 buttons=[
                     [
                         custom.Button.url(
-                            text="⛑ REPO MAN-USERBOT ⛑",
-                            url="https://github.com/mrismanaziz/Man-Userbot",
+                            text="🥷 REPO MoN-USERBOT 🥷",
+                            url="https://github.com/mondar111Userbot",
                         )
                     ],
                     [
                         custom.Button.url(
-                            text="GROUP", url="https://t.me/SharingUserbot"
+                            text="GROUP", url="https://t.me/mutualansesuka"
                         ),
                         custom.Button.url(
-                            text="CHANNEL", url="https://t.me/Lunatic0de"
+                            text="CHANNEL", url="https://t.me/asupanbuas"
                         ),
                     ],
                 ],
@@ -493,21 +493,21 @@ with bot:
                 result = builder.photo(
                     file=logoman,
                     link_preview=False,
-                    text=f"**✗ Man-Userbot Inline Menu ✗**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules",
+                    text=f"**🥷 Mon-Userbot Inline Menu ✗**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
                 result = builder.article(
                     title="Repository",
-                    description="Repository Man - Userbot",
-                    url="https://t.me/SharingUserbot",
+                    description="Repository Mon - Userbot",
+                    url="https://t.me/mutualansesuka",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
-                    text="**Man - UserBot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner Repo :** [Risman](https://t.me/mrismanaziz)\n✣ **Support :** @Lunatic0de\n✣ **Repository :** [Man-Userbot](https://github.com/mrismanaziz/Man-Userbot)\n➖➖➖➖➖➖➖➖➖➖",
+                    text="**Mon - UserBot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner Repo :** [mondar](https://t.me/monajedah)\n✣ **Support :** @familynvn\n✣ **Repository :** [Mon-Userbot](https://github.com/monajedah/Userbot)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/SharingUserbot"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/mutualansesuka"),
                             custom.Button.url(
-                                "ʀᴇᴘᴏ", "https://github.com/mrismanaziz/Man-Userbot"
+                                "ʀᴇᴘᴏ", "https://github.com/mondar111/Userbot"
                             ),
                         ],
                     ],
@@ -515,16 +515,16 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="✗ Man-Userbot ✗",
-                    description="Man - UserBot | Telethon",
-                    url="https://t.me/SharingUserbot",
+                    title="🥷 Mon-Userbot 🥷",
+                    description="Mon - UserBot | Telethon",
+                    url="https://t.me/mutualansesuka",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
-                    text=f"**Man - UserBot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n✣ **Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @Lunatic0de\n➖➖➖➖➖➖➖➖➖➖",
+                    text=f"**Mon - UserBot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n✣ **Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @famliynvn\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/SharingUserbot"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/mutualansesuka"),
                             custom.Button.url(
-                                "ʀᴇᴘᴏ", "https://github.com/mrismanaziz/Man-Userbot"
+                                "ʀᴇᴘᴏ", "https://github.com/mondar111/Userbot"
                             ),
                         ],
                     ],
@@ -539,7 +539,7 @@ with bot:
             if event.query.user_id == uid:
                 current_page_number = int(looters)
                 buttons = paginate_help(current_page_number, dugmeler, "helpme")
-                text = f"**✗ Man-Userbot Inline Menu ✗**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules"
+                text = f"**🥷 Mon-Userbot Inline Menu ✗**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules"
                 await event.edit(
                     text,
                     file=logoman,
