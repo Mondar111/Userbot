@@ -153,7 +153,7 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL", "https://github.com/mondar111/Userbot.git"
 )
-UPSTREAM_REPO_BRANCH = os.environ.get("UPSTREAM_REPO_BRANCH", "Man-Userbot")
+UPSTREAM_REPO_BRANCH = os.environ.get("UPSTREAM_REPO_BRANCH", "Mon-Userbot")
 
 # Console verbose logging
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -223,7 +223,7 @@ ZIP_DOWNLOAD_DIRECTORY = os.environ.get("ZIP_DOWNLOAD_DIRECTORY", "./zips")
 BITLY_TOKEN = os.environ.get("BITLY_TOKEN", None)
 
 # Bot Name
-TERM_ALIAS = os.environ.get("TERM_ALIAS", "Man-Userbot")
+TERM_ALIAS = os.environ.get("TERM_ALIAS", "Mon-Userbot")
 
 # Bot version
 BOT_VER = os.environ.get("BOT_VER", "1.8.6")
@@ -468,7 +468,7 @@ with bot:
                 buttons=[
                     [
                         custom.Button.url(
-                            text="🥷 REPO MoN-USERBOT 🥷",
+                            text="🥷 REPO MON-USERBOT 🥷",
                             url="https://github.com/mondar111Userbot",
                         )
                     ],
@@ -488,7 +488,7 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@SharingUserbot"):
+            if event.query.user_id == uid and query.startswith("@mutualansesuka"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=logoman,
