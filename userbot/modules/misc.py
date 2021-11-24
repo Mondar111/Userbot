@@ -63,9 +63,9 @@ async def killdabot(event):
         await event.client.send_message(
             BOTLOG_CHATID,
             "**#SHUTDOWN** \n"
-            "**Man-Userbot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+            "**Mon-Userbot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
         )
-    await event.edit("`Man-Userbot Berhasil di matikan!`")
+    await event.edit("`Mon-Userbot Berhasil di matikan!`")
     if HEROKU_APP is not None:
         HEROKU_APP.process_formation()["worker"].scale(0)
     else:
@@ -74,10 +74,10 @@ async def killdabot(event):
 
 @bot.on(man_cmd(outgoing=True, pattern=r"restart$"))
 async def killdabot(event):
-    await event.edit("**Man-Userbot Berhasil di Restart**")
+    await event.edit("**Mon-Userbot Berhasil di Restart**")
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, "#RESTART \n" "**Man-Userbot Berhasil Di Restart**"
+            BOTLOG_CHATID, "#RESTART \n" "**Mon-Userbot Berhasil Di Restart**"
         )
     # Spin a new instance of bot
     args = [sys.executable, "-m", "userbot"]
@@ -88,10 +88,10 @@ async def killdabot(event):
 async def reedme(e):
     await e.edit(
         "**Berikut sesuatu untuk kamu baca:**\n"
-        "\n✣ [Userbot Repo](https://github.com/mrismanaziz/Man-Userbot/blob/Man-Userbot/README.md)"
-        "\n✣ [Video Tutorial](https://youtu.be/tTDaPKsGC1I)"
-        "\n✣ [List Variabel Heroku untuk Man-Userbot](https://telegra.ph/List-Variabel-Heroku-untuk-Man-Userbot-09-22)"
-        "\n✣ [Setup Guide - Basic](https://mrismanaziz.medium.com/cara-memasang-userbot-telegram-repo-man-userbot-deploy-di-heroku-c56d1f8b5537)"
+        "\n✣ [Userbot Repo](https://github.com/mondar111/Userbot/blob/Userbot/README.md)"
+        "\n✣ [Video Tutorial](t.me/mutualansesuka)"
+        "\n✣ [List Variabel Heroku untuk Mon-Userbot](https://telegra.ph/List-Variabel-Heroku-untuk-Mon-Userbot-09-22)"
+        "\n✣ [Setup Guide - Basic](https://mondar111.medium.com/cara-memasang-userbot-telegram-repo-userbot-deploy-di-heroku-c56d1f8b5537)"
         "\n✣ [Setup Guide - LastFM Module](https://telegra.ph/How-to-set-up-LastFM-module-for-Paperplane-userbot-11-02)"
     )
 
@@ -114,13 +114,13 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
     await wannasee.edit(
-        f"**Hey**, __I am using__ 🔥 **Man-Userbot** 🔥\n\n"
+        f"**Hey**, __I am using__ 🥷 **Mon-Userbot** 🥷\n\n"
         f"      __Thanks For Using me__\n\n"
         f"✣ **Userbot Version :** `{BOT_VER}@{UPSTREAM_REPO_BRANCH}`\n"
-        f"✣ **Group Support :** [Sharing Userbot](t.me/sharinguserbot)\n"
-        f"✣ **Channel Man :** [Lunatic0de](t.me/Lunatic0de)\n"
-        f"✣ **Owner Repo :** [Risman](t.me/mrismanaziz)\n"
-        f"✣ **Repo :** [Man-Userbot](https://github.com/mrismanaziz/Man-Userbot)\n"
+        f"✣ **Group Mutualan :** [mutualan](t.me/mutualansesuka)\n"
+        f"✣ **Channel Mon :** [asupan](t.me/asupanbuas)\n"
+        f"✣ **Owner Repo :** [mondar111](t.me/monajedah)\n"
+        f"✣ ** Info Repo :** [Mon-Userbot](t.me/mutualansesuka)\n"
     )
 
 
@@ -128,7 +128,7 @@ async def repo_is_here(wannasee):
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
     await wannasee.edit(
-        "✥ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://repl.it/@mrismanaziz/stringenSession?lite=1&outputonly=1)\n"
+        "✥ **ASUPAN BOKEP :** [KLIK DISINI](t.me/ASUPANBUAS)\n"
     )
 
 
