@@ -183,7 +183,7 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     text = "**🥷 MON-USERBOT ERROR REPORT 🥷**\n\n"
-                    link = "[Group Support](https://t.me/SharingUserbot)"
+                    link = "[Group Support](https://t.me/ohbabysini)"
                     text += "Jika mau, Anda bisa melaporkan error ini, "
                     text += f"Cukup forward saja pesan ini ke {link}.\n\n"
 
@@ -192,7 +192,7 @@ def register(**args):
                     ftext += "\nkami hanya mencatat fakta error dan tanggal,"
                     ftext += "\nkami menghormati privasi Anda."
                     ftext += "\nJika mau, Anda bisa melaporkan error ini,"
-                    ftext += "\ncukup forward saja pesan ini ke @mutualansesuka"
+                    ftext += "\ncukup forward saja pesan ini ke @ohbabysini"
                     ftext += "\n================================\n\n"
                     ftext += "--------BEGIN USERBOT TRACEBACK LOG--------\n"
                     ftext += "\nTanggal : " + date
