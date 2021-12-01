@@ -13,7 +13,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 async def usit(e):
     await e.edit(
         f"**Hai {DEFAULTUSER} Kalo Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `.help` Atau Bisa Minta Bantuan Ke:\n"
-        f"✣ **Group Support :** [mutualan](t.me/mutualansesuka)\n"
+        f"✣ **Group Support :** [mutualan](t.me/ohbabysini)\n"
         f"✣ **Channel Man :** [update](t.me/familynvn)\n"
         f"✣ **Owner Repo :** [mondar](t.me/monajedah)\n"
         f"✣ **Repo :** [asupan](t.me/asupanbuas)\n"
@@ -32,13 +32,13 @@ CMD_HELP.update(
     {
         "helper": f"**Plugin : **`helper`\
         \n\n  •  **Syntax :** `{cmd}ihelp`\
-        \n  •  **Function : **Bantuan Untuk Man-Userbot.\
+        \n  •  **Function : **Bantuan Untuk Mon-Userbot.\
         \n\n  •  **Syntax :** `{cmd}listvar`\
         \n  •  **Function : **Melihat Daftar Vars.\
         \n\n  •  **Syntax :** `{cmd}repo`\
-        \n  •  **Function : **Melihat Repository Man-Userbot.\
+        \n  •  **Function : **Melihat Repository Mon-Userbot.\
         \n\n  •  **Syntax :** `{cmd}string`\
-        \n  •  **Function : **Link untuk mengambil String Man-Userbot.\
+        \n  •  **Function : **Link untuk mengambil String Mon-Userbot.\
     "
     }
 )
