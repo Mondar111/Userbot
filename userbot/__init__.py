@@ -4,8 +4,8 @@
 # you may not use this file except in compliance with the License.
 #
 # inline credit @keselekpermen69
-# Recode by @mrismanaziz
-# t.me/SharingUserbot
+# Recode by @monajedah
+# t.me/ohbabysini
 #
 """ Userbot initialization. """
 
@@ -135,7 +135,7 @@ SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"$")
 OWNER_ID = int(os.environ.get("OWNER_ID") or 0)
 
 # Support
-GROUP = os.environ.get("GROUP", "mutualansesuka")
+GROUP = os.environ.get("GROUP", "ohbabysini")
 CHANNEL = os.environ.get("CHANNEL", "familynvn")
 
 # Heroku Credentials for updater.
@@ -457,7 +457,7 @@ with bot:
                 f"**Hey**, __I am using__ 🥷 **Mon-Userbot** 🥷\n\n"
                 f"       __Thanks For Using me__\n\n"
                 f"✣ **Userbot Version :** `{BOT_VER}@{UPSTREAM_REPO_BRANCH}`\n"
-                f"✣ **Group Support :** [mutualan](t.me/mutualansesuka)\n"
+                f"✣ **Group Support :** [mutualan](t.me/ohbabysini)\n"
                 f"✣ **Owner Repo :** [mondar111](t.me/monajedah)\n"
                 f"✣ **Repo :** [Mon-Userbot](https://github.com/mondar111/Userbot)\n"
             )
@@ -474,7 +474,7 @@ with bot:
                     ],
                     [
                         custom.Button.url(
-                            text="GROUP", url="https://t.me/mutualansesuka"
+                            text="GROUP", url="https://t.me/ohbabysini"
                         ),
                         custom.Button.url(
                             text="CHANNEL", url="https://t.me/asupanbuas"
@@ -500,12 +500,12 @@ with bot:
                 result = builder.article(
                     title="Repository",
                     description="Repository Mon - Userbot",
-                    url="https://t.me/mutualansesuka",
+                    url="https://t.me/ohbabysini",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
                     text="**Mon - UserBot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner Repo :** [mondar](https://t.me/monajedah)\n✣ **Support :** @familynvn\n✣ **Repository :** [Mon-Userbot](https://github.com/monajedah/Userbot)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/mutualansesuka"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/ohbabysini"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ", "https://github.com/mondar111/Userbot"
                             ),
@@ -517,12 +517,12 @@ with bot:
                 result = builder.article(
                     title="🥷 Mon-Userbot 🥷",
                     description="Mon - UserBot | Telethon",
-                    url="https://t.me/mutualansesuka",
+                    url="https://t.me/ohbabysini",
                     thumb=InputWebDocument(INLINE_PIC, 0, "image/jpeg", []),
                     text=f"**Mon - UserBot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **UserMode:** [{user.first_name}](tg://user?id={user.id})\n✣ **Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Support:** @famliynvn\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
-                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/mutualansesuka"),
+                            custom.Button.url("ɢʀᴏᴜᴘ", "https://t.me/ohbabysini"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ", "https://github.com/mondar111/Userbot"
                             ),
