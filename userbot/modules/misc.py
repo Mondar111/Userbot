@@ -5,9 +5,9 @@
 #
 # You can find misc modules, which dont fit in anything xD
 #
-# Recode by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
+# Recode by @monajedah
+# FROM Mon-Userbot <https://github.com/mondar111/Userbot>
+# t.me/ohbabysini & t.me/familynvn
 #
 """ Userbot module for other small commands. """
 
@@ -89,7 +89,7 @@ async def reedme(e):
     await e.edit(
         "**Berikut sesuatu untuk kamu baca:**\n"
         "\n✣ [Userbot Repo](https://github.com/mondar111/Userbot/blob/Userbot/README.md)"
-        "\n✣ [Video Tutorial](t.me/mutualansesuka)"
+        "\n✣ [Video Tutorial](t.me/ohbabysini)"
         "\n✣ [List Variabel Heroku untuk Mon-Userbot](https://telegra.ph/List-Variabel-Heroku-untuk-Mon-Userbot-09-22)"
         "\n✣ [Setup Guide - Basic](https://mondar111.medium.com/cara-memasang-userbot-telegram-repo-userbot-deploy-di-heroku-c56d1f8b5537)"
         "\n✣ [Setup Guide - LastFM Module](https://telegra.ph/How-to-set-up-LastFM-module-for-Paperplane-userbot-11-02)"
@@ -117,10 +117,10 @@ async def repo_is_here(wannasee):
         f"**Hey**, __I am using__ 🥷 **Mon-Userbot** 🥷\n\n"
         f"      __Thanks For Using me__\n\n"
         f"✣ **Userbot Version :** `{BOT_VER}@{UPSTREAM_REPO_BRANCH}`\n"
-        f"✣ **Group Mutualan :** [mutualan](t.me/mutualansesuka)\n"
+        f"✣ **Group Mutualan :** [mutualan](t.me/ohbabysini)\n"
         f"✣ **Channel Mon :** [asupan](t.me/asupanbuas)\n"
         f"✣ **Owner Repo :** [mondar111](t.me/monajedah)\n"
-        f"✣ ** Info Repo :** [Mon-Userbot](t.me/mutualansesuka)\n"
+        f"✣ ** Info Repo :** [Mon-Userbot](t.me/familynvn)\n"
     )
 
 
