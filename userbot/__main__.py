@@ -4,9 +4,9 @@
 # you may not use this file except in compliance with the License.
 #
 # Copyright (C) 2021 TeamUltroid for autobot
-# Recode by @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
+# Recode by @monajedah
+# FROM Mon-Userbot <https://github.com/mondar111/Man-Userbot>
+# t.me/ohbabysini & t.me/familynvn
 #
 """ Userbot start point """
 
@@ -39,7 +39,7 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
 LOGS.info(
-    f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/mutualansesuka"
+    f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/ohbabysini"
 )
 
 LOGS.info(f"Mon-Userbot ⚙️ V{BOT_VER} [🔥 BERHASIL DIAKTIFKAN! 🔥]")
@@ -50,13 +50,13 @@ async def man_userbot_on():
         if BOTLOG_CHATID != 0:
             await bot.send_message(
                 BOTLOG_CHATID,
-                f"🔥 **Mon-Userbot Berhasil Di Aktifkan**\n━━\n➠ **Userbot Version -** `{BOT_VER}@{UPSTREAM_REPO_BRANCH}`\n➠ **Ketik** `{cmd}alive` **untuk Mengecheck Bot**\n━━",
+                f"♨️ **Mon-Userbot Berhasil Di Aktifkan**\n━━\n➠ **Userbot Version -** `{BOT_VER}@{UPSTREAM_REPO_BRANCH}`\n➠ **Ketik** `{cmd}alive` **untuk Mengecheck Bot**\n━━",
             )
     except Exception as e:
         LOGS.info(str(e))
     try:
         await bot(JoinChannelRequest("@familynvn"))
-        await bot(JoinChannelRequest("@mutualansesuka"))
+        await bot(JoinChannelRequest("@ohbabysini"))
     except BaseException:
         pass
 
