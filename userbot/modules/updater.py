@@ -58,7 +58,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         if heroku_app is None:
             await event.edit(
                 f"{txt}\n"
-                "**Kredensial Heroku tidak valid untuk deploy Man-Userbot dyno.**"
+                "**Kredensial Heroku tidak valid untuk deploy Mon-Userbot dyno.**"
             )
             return repo.__del__()
         try:
@@ -204,9 +204,9 @@ CMD_HELP.update(
     {
         "update": f"**Plugin : **`update`\
         \n\n  •  **Syntax :** `{cmd}update`\
-        \n  •  **Function : **Untuk Melihat Pembaruan Terbaru Man-Userbot.\
+        \n  •  **Function : **Untuk Melihat Pembaruan Terbaru Mon-Userbot.\
         \n\n  •  **Syntax :** `{cmd}update deploy`\
-        \n  •  **Function : **Untuk MengUpdate Fitur Terbaru Dari Man-Userbot.\
+        \n  •  **Function : **Untuk MengUpdate Fitur Terbaru Dari Mon-Userbot.\
     "
     }
 )
