@@ -1,6 +1,6 @@
-# Credits: @mrismanaziz
-# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
-# t.me/SharingUserbot & t.me/Lunatic0de
+# Credits: @monajedah
+# FROM Mon-Userbot <https://github.com/mondar111/Userbot>
+# t.me/ohbabysini & t.me/familynvn
 
 import asyncio
 import importlib
@@ -94,7 +94,7 @@ async def autobot():
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
             await bot.send_message(
-                bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @Lunatic0de ✨"
+                bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @familynvn ✨"
             )
             await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [username]))
             await bot.send_message(
@@ -133,7 +133,7 @@ async def autobot():
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
         await bot.send_message(
-            bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @Lunatic0de ✨"
+            bf, f"✨ Owner ~ {who.first_name} ✨\n\n✨ Powered By ~ @familynvn ✨"
         )
         await bot(InviteToChannelRequest(int(BOTLOG_CHATID), [username]))
         await bot.send_message(
