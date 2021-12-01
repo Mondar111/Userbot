@@ -14,7 +14,7 @@ async def usit(e):
     await e.edit(
         f"**Hai {DEFAULTUSER} Kalo Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `.help` Atau Bisa Minta Bantuan Ke:\n"
         f"✣ **Group Support :** [mutualan](t.me/ohbabysini)\n"
-        f"✣ **Channel Man :** [update](t.me/familynvn)\n"
+        f"✣ **Channel Mon :** [update](t.me/familynvn)\n"
         f"✣ **Owner Repo :** [mondar](t.me/monajedah)\n"
         f"✣ **Repo :** [asupan](t.me/asupanbuas)\n"
     )
