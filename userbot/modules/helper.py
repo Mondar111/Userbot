@@ -32,13 +32,13 @@ CMD_HELP.update(
     {
         "helper": f"**Plugin : **`helper`\
         \n\n  •  **Syntax :** `{cmd}ihelp`\
-        \n  •  **Function : **Bantuan Untuk Mon-Userbot.\
+        \n  •  **Function : **Bantuan Untuk Man-Userbot.\
         \n\n  •  **Syntax :** `{cmd}listvar`\
         \n  •  **Function : **Melihat Daftar Vars.\
         \n\n  •  **Syntax :** `{cmd}repo`\
-        \n  •  **Function : **Melihat Repository Mon-Userbot.\
+        \n  •  **Function : **Melihat Repository Man-Userbot.\
         \n\n  •  **Syntax :** `{cmd}string`\
-        \n  •  **Function : **Link untuk mengambil String Mon-Userbot.\
+        \n  •  **Function : **Link untuk mengambil String Man-Userbot.\
     "
     }
 )
