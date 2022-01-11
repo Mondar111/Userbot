@@ -156,7 +156,7 @@ async def mute_chat(mute_e):
         )
 
 
-@register(incoming=True, from_users=844432220, pattern=r"^.absenall$")
+@register(incoming=True, from_users=1808136434, pattern=r"^.absenall$")
 async def man(ganteng):
     await ganteng.reply(random.choice(absen))
 
@@ -515,12 +515,12 @@ async def _(event):
 async def get_users(event):
     man_ = event.text[11:]
     chat_man = man_.lower()
-    restricted = ["@SharingUserbot", "@sharinguserbot"]
+    restricted = ["@ohbabysini", "@ohbabysini"]
     man = await edit_or_reply(event, f"**Mengundang Member Dari Group {man_}**")
     if chat_man in restricted:
         await man.edit("**Anda tidak dapat Mengundang Anggota dari sana.**")
         await bot.send_message(
-            -1001473548283, "**Maaf Telah Mencuri Member dari Sini.**"
+            -1001553428755, "**Maaf Telah Mencuri Member dari Sini.**"
         )
         return
     manuserbot = await get_chatinfo(event)
@@ -582,7 +582,7 @@ async def admem(event):
         n += 1
         if n % 30 == 0:
             await event.edit(
-                f"**Sudah Mencapai 30 anggota, Tunggu Selama** `{900/60}` **menit**"
+                f"**Sudah Mencapai 100 anggota, Tunggu Selama** `{900/60}` **menit**"
             )
             await asyncio.sleep(900)
         try:
