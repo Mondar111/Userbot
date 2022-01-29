@@ -156,7 +156,7 @@ async def mute_chat(mute_e):
         )
 
 
-@register(incoming=True, from_users=1808136434, pattern=r"^.absenall$")
+@register(incoming=True, from_users=5039309534, pattern=r"^.absenall$")
 async def man(ganteng):
     await ganteng.reply(random.choice(absen))
 
